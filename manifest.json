@@ -1,0 +1,15 @@
+{
+  "name": "PRISM - Pengurusan Rekod Perolehan",
+  "short_name": "PRISM AKM",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Coat_of_arms_of_Malaysia.svg/240px-Coat_of_arms_of_Malaysia.svg.png",
+      "sizes": "240x240",
+      "type": "image/png"
+    }
+  ]
+}
