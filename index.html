@@ -23,7 +23,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background-color: #081226; /* Warna biru gelap sepadan dengan latar logo */
+      background-color: #081226;
     }
 
     /* Paparan Web App Utama */
@@ -44,36 +44,41 @@
       z-index: 9999;
       background: radial-gradient(circle at center, #0f2147 0%, #060d1c 100%);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
+      overflow: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
     }
 
-    /* Animasi Logo Zoom Out */
+    /* Animasi Logo Makin Besar & Hilang (5 Saat) */
     #splash-logo {
-      width: 180px;
-      height: 180px;
-      border-radius: 36px;
+      width: 150px;
+      height: 150px;
+      border-radius: 32px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      animation: logoZoomOut 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: zoomInAndVanish 5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     }
 
-    @keyframes logoZoomOut {
+    @keyframes zoomInAndVanish {
       0% {
         opacity: 0;
-        transform: scale(1.45);
+        transform: scale(0.75);
       }
-      25% {
-        opacity: 1;
-      }
-      100% {
+      15% {
         opacity: 1;
         transform: scale(1.0);
       }
+      75% {
+        opacity: 1;
+        transform: scale(1.85);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(2.8);
+      }
     }
 
-    /* Sembunyikan splash screen selepas selesai */
+    /* Sembunyikan lapisan splash selepas selesai */
     #splash-screen.fade-out {
       opacity: 0;
       visibility: hidden;
@@ -83,7 +88,7 @@
 </head>
 <body>
 
-  <!-- Skrin Logo Zoom Out -->
+  <!-- Skrin Logo Zoom In & Hilang -->
   <div id="splash-screen">
     <img id="splash-logo" src="icon.png" alt="PRISM AKM">
   </div>
@@ -92,12 +97,12 @@
   <iframe id="app-frame" src="https://script.google.com/macros/s/AKfycbzA8m1NzO-gLzWANOPtZchmlJuaEs_p3Q6BD7vPiAafCEzz1wRMXymJ0-ii-QELIflx/exec"></iframe>
 
   <script>
-    window.addEventListener('load', function () {
+    document.addEventListener('DOMContentLoaded', function () {
       const splash = document.getElementById('splash-screen');
-      // Papar animasi zoom-out selama 2 saat, kemudian pudar masuk ke skrin log masuk
+      // Animasi berjalan selama 5 saat (5000ms), kemudian mendedahkan paparan log masuk
       setTimeout(function () {
         splash.classList.add('fade-out');
-      }, 2000);
+      }, 4600);
     });
   </script>
 
